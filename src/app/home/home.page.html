@@ -11,5 +11,7 @@
     <ion-button style="margin-bottom: 20px;" expand="full" shape="round" color="success" (click)="getGeolocation()">Get Geolocation</ion-button>
     <ion-button style="margin-bottom: 20px;" expand="full" shape="round" color="primary" (click)="vibrate()">Vibration</ion-button>
     <ion-button expand="full" shape="round" color="danger" (click)="takePicture()">Take picture</ion-button>
+
+    <img [src]="base64Image"/>
   </div>
 </ion-content>

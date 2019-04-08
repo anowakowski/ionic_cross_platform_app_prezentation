@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -10,7 +13,13 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private vibration: Vibration, private geolocation: Geolocation, public toastController: ToastController) {
+  public base64Image: string;
+
+  constructor(
+    private vibration: Vibration,
+    private geolocation: Geolocation,
+    public toastController: ToastController,
+    private camera: Camera) {
 
   }
 
@@ -27,6 +36,17 @@ export class HomePage {
   }
 
   takePicture() {
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    };
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.base64Image = imageData;
+     }, (err) => {
+     });
   }
 
   async presentToast(message: string) {
@@ -37,5 +57,4 @@ export class HomePage {
     });
     toast.present();
   }
-
 }
