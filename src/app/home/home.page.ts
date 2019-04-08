@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import { Vibration } from '@ionic-native/vibration/ngx';
 })
 export class HomePage {
 
-  constructor(private vibration: Vibration) {
+  constructor(private vibration: Vibration, private geolocation: Geolocation) {
+
   }
 
   vibrate() {
@@ -16,7 +18,12 @@ export class HomePage {
   }
 
   getGeolocation() {
-
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 
   takePicture() {

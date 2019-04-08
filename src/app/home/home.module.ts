@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import { HomePage } from './home.page';
 
@@ -20,6 +22,6 @@ import { HomePage } from './home.page';
     ])
   ],
   declarations: [HomePage],
-  providers: [Vibration]
+  providers: [Vibration, Geolocation]
 })
 export class HomePageModule {}
