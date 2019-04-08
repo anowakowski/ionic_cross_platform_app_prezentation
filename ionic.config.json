@@ -1,5 +1,7 @@
 {
   "name": "test-nativeComponents-presentationTestApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
