@@ -15,4 +15,12 @@ export class HomePage {
     this.vibration.vibrate(1000);
   }
 
+  getGeolocation() {
+
+  }
+
+  takePicture() {
+
+  }
+
 }
